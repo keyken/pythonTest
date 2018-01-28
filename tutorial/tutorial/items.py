@@ -16,5 +16,4 @@ class TutorialItem(Item):
 
 class DmozItem(Item):
     title = Field()
-    url1 = Field()
     desc1 = Field()
