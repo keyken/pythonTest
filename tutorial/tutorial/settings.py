@@ -14,7 +14,7 @@ BOT_NAME = 'tutorial'
 SPIDER_MODULES = ['tutorial.spiders']
 NEWSPIDER_MODULE = 'tutorial.spiders'
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-#USER_AGENT = 'tutorial (+http://www.yourdomain.com)'
+USER_AGENT = 'googlebot'
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = False
@@ -53,7 +53,8 @@ ITEM_PIPELINES = {'tutorial.pipelines.TutorialPipeline': 300}
 # Enable or disable downloader middlewares
 # See https://doc.scrapy.org/en/latest/topics/downloader-middleware.html
 #DOWNLOADER_MIDDLEWARES = {
-#    'tutorial.middlewares.TutorialDownloaderMiddleware': 543,
+#    'scrapy.downloadermiddleware.useragent.UserAgentMiddleware': None,
+#    'tutorial.middlewares.RandomUserAgentMiddleware': 400,
 #}
 
 # Enable or disable extensions
