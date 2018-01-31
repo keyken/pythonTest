@@ -14,5 +14,11 @@ class TutorialPipeline(object):
 
     def process_item(self, item, spider):
         line = json.dumps(dict(item))+'\n'
+        conn = MySQLdb.connect(host='localhost', port=3306, user='root', passwd='123456', db='zhaoping1')
+        cur = conn.cursor()
+        tsql = "insert into jsondataTest1(info) values('{json}')"
+        sql = tsql.format(json=MySQLdb.escape_string(line.decode('unicode_escape')))
+        cur.execute(sql)
+        conn.commit()
         self.file.write(line.decode('unicode_escape'))
         return item
