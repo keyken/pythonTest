@@ -16,10 +16,9 @@ class TutorialPipeline(object):
         line = json.dumps(dict(item))+'\n'
         conn = MySQLdb.connect(host='localhost', port=3306, user='root', passwd='123456', db='zhaoping1')
         cur = conn.cursor()
-        if line != "select * from jsondataTest2 order by info desc limit 1":
-            tsql = "insert into jsondataTest2(info) values('{json}')"
-            sql = tsql.format(json=MySQLdb.escape_string(line.decode('unicode_escape')))
-            cur.execute(sql)
-            conn.commit()
+        tsql = "insert into jsondataTest2(info) values('{json}')"
+        sql = tsql.format(json=MySQLdb.escape_string(line.decode('unicode_escape')))
+        cur.execute(sql)
+        conn.commit()
         self.file.write(line.decode('unicode_escape'))
         return item
