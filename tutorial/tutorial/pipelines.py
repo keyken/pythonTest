@@ -16,7 +16,7 @@ class TutorialPipeline(object):
         self.file.write(line.encode("utf-8"))
         conn = MySQLdb.connect(host='localhost', port=3306, user='root', passwd='123456', db='zhaoping1')
         cur = conn.cursor()
-        tsql = "insert into jsondataTest1(info) values('{json}')"
+        tsql = "insert into jsondataTest2(info) values('{json}')"
         sql = tsql.format(json=MySQLdb.escape_string(line))
         cur.execute(sql)
         conn.commit()
